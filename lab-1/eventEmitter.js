@@ -1,4 +1,6 @@
-// a function which give output 
+// a function which give output
+import { EventEmitter } from "node:events"; 
+
 const login = (name) => {
     console.log(`${name} is logged in`);
 };
@@ -13,5 +15,16 @@ const checkout = (name) => {
     console.log(`${name} logged out`);
 };
 
-login('Aaryan Singhal');
-start();
+const task = new EventEmitter();
+task.once("greet", start);
+task.on("greet", login);
+task.on("greet", working);
+task.on("greet", checkout);
+task.once("exit", () => {
+    console.log("System shutting down");
+});
+
+task.emit("greet", 'Aaryan');
+task.off("greet", working);
+task.emit("greet", 'Karan');
+task.emit("exit", 'Manager');

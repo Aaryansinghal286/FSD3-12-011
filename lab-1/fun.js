@@ -9,3 +9,7 @@ const ToWord = (digit) => {
 console.log(ToWord(5));
 console.log(ToWord(3));
 console.log(ToWord(6));
+
+// frontend:- html, css, js, react
+// backend:- Node.js, springb oot, fastapi, django, php
+// html-fastapi, css-django 

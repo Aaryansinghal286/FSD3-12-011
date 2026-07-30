@@ -8,4 +8,4 @@ form.on("Submit", (uname, password) => {
     console.log(`User Name: ${uname}`);
     console.log(`User Password: ${password}`);    
 })
-form.emit("Submit", "abc@abc.com", "11223322");
+form.emit("Submit", "abc@abc.com🙄", "11223322");

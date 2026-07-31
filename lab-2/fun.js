@@ -9,10 +9,11 @@ const f3 = () => {
 };
 
 function main() {
-    console.log("main");
-    f1();
-    f2();
+    console.log("main🫩");
+    setTimeout(f1,0);
+    // setInterval(f1,1000);
+    setImmediate(f2);
     f3();
-    console.log("end");
+    console.log("end✈️🛩️");
 };
 main();

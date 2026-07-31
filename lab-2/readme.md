@@ -6,3 +6,9 @@ js is synchronous and single threaded bydefault
 -with BrowserAPI -setTimeout, setinterval, setImmediate, nextTick
 -with promises
 -with event handlers
+a function not executed immediately but it must be executed after a while. It has some status during the execution. At final, it may resolve {resolve() => success} or reject {reject() => unsuccess}
+Modern JS is divided into two categories: 
+1. common js (cjs) -> supports OOPs -> require
+    - priority {nextTick, promise, setImmediate/setTimeout}
+2. ModuleJS (.mjs) -> follow modular approach -> import
+    - priority {promise, nextTick, setImmediate/setTimeout}

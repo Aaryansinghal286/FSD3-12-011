@@ -8,12 +8,28 @@ const f3 = () => {
   console.log("f3");
 };
 
+// function main() {
+//   console.log("main🫩");
+//   setTimeout(f1, 0);
+//   setInterval(f1, 1000);
+//   setImmediate(f2);
+//   process.nextTick(f3);
+//   console.log("end✈️🛩️");
+// }
 function main() {
-  console.log("main🫩");
-  setTimeout(f1, 0);
-  // setInterval(f1,1000);
-  setImmediate(f2);
-  process.nextTick(f3);
-  console.log("end✈️🛩️");
+  console.log("main");
+
+  setTimeout(f1, 50);
+
+  setTimeout(f3, 30);
+
+  new Promise((resolve, reject) => {
+    resolve("I am promise 1");
+  }).then((resolve) => console.log(resolve));
+
+  new Promise((resolve, reject) => {
+    resolve("I am promise 2");
+  }).then((resolve) => console.log(resolve));
+
+  f2();
 }
-main();

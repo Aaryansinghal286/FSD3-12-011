@@ -22,3 +22,7 @@ in the file, all folders are:
 4. watch - watch , unwatch
 
 all functions start with promise so it must be called with awake
+
+appendFile() -> it appends/add new content at the end of an existing file without deleting its previous content.
+writeFile() -> It creates a file if it doesn't exist and writes data to it. If the file already exists, its previous content/data is overwritten.
+

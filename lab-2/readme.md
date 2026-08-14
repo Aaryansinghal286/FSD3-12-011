@@ -26,3 +26,17 @@ all functions start with promise so it must be called with awake
 appendFile() -> it appends/add new content at the end of an existing file without deleting its previous content.
 writeFile() -> It creates a file if it doesn't exist and writes data to it. If the file already exists, its previous content/data is overwritten.
 
+
+# CRUD project
+
+C -> Create
+R -> Retrieve
+U -> Update
+D -> Delete
+
+assume we are making a cart related project:-
+1. user can add any product (id, name, price, qty) into cart.
+2. user can see all the items of the cart.
+3. user can remove item from cart.
+4. user can also update quantity of product.
+5. all the items should be stored after termination of project.

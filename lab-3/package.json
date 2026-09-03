@@ -1,0 +1,9 @@
+{
+  "name": "lab-3",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "prg5.js",
+  "scripts": {
+    "start": "node prg5.js"
+  }
+}

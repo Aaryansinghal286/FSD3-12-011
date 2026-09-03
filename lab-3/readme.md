@@ -23,7 +23,7 @@ one of the most important module in Node.js, originally designed for building sc
 ### Server can send to the client
 
 1. html contents -> prg2, prg3
-2. html file -> prg5
+2. html file -> prg6
 3. json data -> prg4
 4. plain file
 5. js file

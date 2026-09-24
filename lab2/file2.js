@@ -30,13 +30,13 @@ const appendedData = async (filename, content) => {
     }
 };
 
-const deleteFile=async (filename) => {
-    try{
-        await unlink(filename);
-    }catch(error){
-        console.log("file Not Found");
-    }
-};
+// const deleteFile=async (filename) => {
+//     try{
+//         await unlink(filename);
+//     }catch(error){
+//         console.log("file Not Found");
+//     }
+// };
 
 const data=await readData("hello.txt");
 console.log(data);

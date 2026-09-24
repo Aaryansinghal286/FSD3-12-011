@@ -25,3 +25,33 @@ script{
 - REST API uses (get, post, put, patch, delete) method to communicate with client
 - any browser can check only get method
 - for other method type we use third party API Tester like postman, thunder client, echo api etc
+
+## Request type :- *GET*
+1. Get all
+    GET: /api/products   (--> to get all products)
+2. GET by ID
+    GET: /api/products/101     (--> To get product of ID 101)
+
+## Request type :- *POST*
+1. POST → Send/Create data on server
+
+    text
+    POST /api/products
+    Body → new data
+
+
+PUT → Update/Replace full data
+
+text
+PUT /api/products/101
+Body → updated data
+
+
+PATCH → Update part of data
+
+text
+PATCH /api/products/101
+Body → changed data
+
+
+## exported functions

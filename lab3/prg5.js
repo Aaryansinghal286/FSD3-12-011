@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
       `);
   } else if (req.url === "/product") {
     res.write(`
-            <h1>Iphone XL</h1>
+            <h1> Iphone XL</h1>
             <h2> Price: 90000</h2>
             <h3> Discount: 30%</h3>
     `);

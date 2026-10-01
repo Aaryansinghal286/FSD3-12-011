@@ -12,5 +12,18 @@ app.get("/", (req, res) => {
     `);
 });
 
+app.get("/about", (req, res) => {
+    res.send(`<h1>About Page</h1>`);
+});
+
+app.get("/products", (req, res) => {
+  const product = {
+    id: 1,
+    name: "Mobile",
+    price: 25000,
+  };
+  res.send(product);
+});
+
 // this line must be last line 👇
 app.listen(4444, () => console.log("prg1 is running at 4444"));

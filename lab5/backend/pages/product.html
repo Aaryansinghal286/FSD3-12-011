@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacBook Pro</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: white;
+        }
+
+        .buy-btn {
+            background: #0071e3;
+            color: white;
+            padding: 7px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+
+        .buy-btn:hover {
+            background: #0077ed;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, #222 0%, #050505 55%, #000 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 100px);
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .hero h2 {
+            font-size: clamp(24px, 4vw, 46px);
+            margin-top: 5px;
+            background: linear-gradient(90deg, #fff, #777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            margin-top: 25px;
+            font-size: 20px;
+            color: #aaa;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+        }
+
+        .primary-btn {
+            background: #0071e3;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 8px;
+            display: inline-block;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .primary-btn:hover {
+            background: #0077ed;
+        }
+
+        .secondary-btn {
+            border: 1px solid #555;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 8px;
+            display: inline-block;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .secondary-btn:hover {
+            border-color: #888;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* LAPTOP */
+        .laptop-container {
+            margin-top: 70px;
+            perspective: 1000px;
+            width: min(720px, 90vw);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .laptop {
+            width: 85%;
+            height: 380px;
+            background: linear-gradient(145deg, #555, #111);
+            border-radius: 18px 18px 4px 4px;
+            padding: 14px;
+            box-shadow: 0 30px 80px rgba(255, 255, 255, 0.08);
+            transform: rotateX(4deg);
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background:
+                radial-gradient(circle at 50% 45%, #743cff, transparent 35%),
+                linear-gradient(135deg, #050505, #151515);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .screen-text {
+            text-align: center;
+        }
+
+        .screen-text h3 {
+            font-size: clamp(24px, 4vw, 38px);
+        }
+
+        .screen-text p {
+            color: #aaa;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        .base {
+            width: 100%;
+            height: 18px;
+            background: linear-gradient(#aaa, #555);
+            border-radius: 0 0 24px 24px;
+            position: relative;
+        }
+
+        .base::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15%;
+            height: 5px;
+            background: #222;
+            border-radius: 0 0 6px 6px;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 120px 8%;
+            background: #050505;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: clamp(32px, 5vw, 50px);
+            margin-bottom: 70px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            background: #111;
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid #222;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            border-color: #555;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .feature h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            color: #999;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* SPECS */
+        .specs {
+            padding: 120px 8%;
+            text-align: center;
+            background: #0a0a0a;
+        }
+
+        .specs h2 {
+            font-size: clamp(32px, 5vw, 50px);
+            margin-bottom: 50px;
+        }
+
+        .spec-table {
+            max-width: 800px;
+            margin: auto;
+            border: 1px solid #222;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 22px 30px;
+            border-bottom: 1px solid #222;
+            text-align: left;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-row span:first-child {
+            color: #888;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 140px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #050505, #111);
+        }
+
+        .cta h2 {
+            font-size: clamp(36px, 6vw, 75px);
+        }
+
+        .cta p {
+            color: #999;
+            margin: 20px 0 30px;
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #222;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            nav ul {
+                display: none;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .laptop {
+                height: 230px;
+            }
+
+            .spec-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="#overview" class="logo"></a>
+
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#specs">Specs</a></li>
+        </ul>
+
+        <a href="#buy" class="buy-btn">Buy</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="overview">
+        <h1>MacBook Pro</h1>
+        <h2>Mind-blowing. Head-turning.</h2>
+        <p>Supercharged by Apple silicon.</p>
+
+        <div class="hero-buttons">
+            <a href="#buy" class="primary-btn">Buy</a>
+            <a href="#features" class="secondary-btn">Learn more</a>
+        </div>
+
+        <div class="laptop-container">
+            <div class="laptop">
+                <div class="screen">
+                    <div class="screen-text">
+                        <h3>MacBook Pro</h3>
+                        <p>Power meets possibility.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="base"></div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <h2>Built for the extraordinary.</h2>
+
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Blazing Performance</h3>
+                <p>Experience incredible performance with Apple silicon, designed to handle demanding workflows with ease.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🖥️</div>
+                <h3>Stunning Display</h3>
+                <p>Enjoy a brilliant high-resolution display with deep blacks, vibrant colors, and incredible detail.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🔋</div>
+                <h3>All-day Battery</h3>
+                <p>Keep working, creating, and exploring with impressive battery life throughout your day.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🎬</div>
+                <h3>Pro Creativity</h3>
+                <p>Edit video, create graphics, code, and bring your biggest ideas to life without stuttering.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🔊</div>
+                <h3>Immersive Audio</h3>
+                <p>Rich, detailed sound creates an immersive experience whether you're watching movies or producing music.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy & Security</h3>
+                <p>Built-in security features help keep your personal data and sensitive files protected automatically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECS -->
+    <section class="specs" id="specs">
+        <h2>Technical specifications</h2>
+
+        <div class="spec-table">
+            <div class="spec-row">
+                <span>Processor</span>
+                <strong>Apple Silicon</strong>
+            </div>
+
+            <div class="spec-row">
+                <span>Display</span>
+                <strong>Liquid Retina XDR</strong>
+            </div>
+
+            <div class="spec-row">
+                <span>Memory</span>
+                <strong>Up to 128GB Unified Memory</strong>
+            </div>
+
+            <div class="spec-row">
+                <span>Storage</span>
+                <strong>Up to 8TB SSD</strong>
+            </div>
+
+            <div class="spec-row">
+                <span>Connectivity</span>
+                <strong>Wi-Fi 6E & Bluetooth 5.3</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="buy">
+        <h2>Pro. Beyond.</h2>
+        <p>Ready to take your workflow to the next level?</p>
+        <button type="button" class="primary-btn" onclick="buyNow()">
+            Buy MacBook Pro
+        </button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 MacBook Pro Concept Page. Created for educational purposes.
+    </footer>
+
+    <script>
+        function buyNow() {
+            alert("MacBook Pro purchase button clicked!");
+        }
+    </script>
+</body>
+</html>

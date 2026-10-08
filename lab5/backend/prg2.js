@@ -1,4 +1,5 @@
 import express from "express";
+
 import path from "path";
 import { fileURLToPath } from "node:url";
 
@@ -8,14 +9,17 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(dirname, "pages", "product.html"));
+  res.sendFile(path.join(dirname, "pages", "product.html"));
 });
 
 app.get("/contact", (req, res) => {
-    res.sendFile(path.join(dirname, "pages", "contact.html"));
+  res.sendFile(path.join(dirname, "pages", "contact.html"));
 });
 
-//this route must be last 👇
 app.use((req, res) => {
-    res.status(404).send("<h1>Page Not Found</h1>");
+  res.status(404).send("<h1> Page not Found </h1>");
+});
+
+app.listen(4444, () => {
+  console.log("prg2 is running at 4444");
 });
